@@ -31,11 +31,22 @@ router.post('/register',
         const newUser = await userModel.create({
             email,
             username,
-            password : hashPassword
+            password: hashPassword
         });
 
         res.json(newUser);
 
     });
+
+router.get('/login', (req, res) => {
+    res.render('login');
+});
+
+router.post('/login', (req, res) => {
+    body('email').trim().isEmail(),
+    body('password').trim().isLength({ min: 5 })
+
+    
+});
 
 module.exports = router;
