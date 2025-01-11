@@ -10,12 +10,15 @@ connectToDB();
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+const indexRouter = require('./routes/index.routes');
 const userRoutes = require('./routes/user.routes');
 
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Render routers
+app.use('/', indexRouter);
 app.use('/user', userRoutes);
 
 app.listen(3000, () => {
