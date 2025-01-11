@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
-const connectToDB = require('./config/db');
-
 dotenv.config();
 
 // DB Connection
+const connectToDB = require('./config/db');
 connectToDB();
+
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 const userRoutes = require('./routes/user.routes');
 
