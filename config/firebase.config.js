@@ -6,4 +6,4 @@ const firebase = Firebase.initializeApp({
     storageBucket: 'business-directory-9f54c.appspot.com'
 })
 
-module.exports = firebase;
+module.exports = Firebase;
