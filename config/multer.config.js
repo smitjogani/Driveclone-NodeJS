@@ -15,7 +15,8 @@ const storage = firebaseStorage({
         clientEmail: serviceAccount.client_email,
         privateKey: serviceAccount.private_key,
         projectId: serviceAccount.project_id
-    }
+    },
+    unique: true
 });
 
 const upload = multer({
