@@ -74,7 +74,22 @@
         </form>
         <button
           class="absolute top-4 right-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-          onclick="closePopUp()">Close</button>
+          onclick="closePopUp()"
+        >
+          Close
+        </button>
+      </div>
+
+      <div class="files flex flex-col gap-2 py-4">
+        <% files.forEach((file) => {%>
+
+        <div class="p-2 rounded-md cursor-pointer bg-gray-200 mx-4 flex justify-between items-center">
+          <h1><%=file.originalname%></h1>
+
+          <a href="/download/<%= file.path %>" download="<%=file.originalname%>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Download</a>
+        </div>
+
+        <% }) %>
       </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
@@ -86,7 +101,6 @@
       function closePopUp() {
         document.querySelector(".pop").style.display = "none";
       }
-
     </script>
   </body>
 </html>
